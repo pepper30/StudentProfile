@@ -18,8 +18,8 @@ import megha.jindal.firebase.FireBaseAuthen;
  */
 
 public class CreateAccountPresenter implements CreateAccountContract.presenter {
-    FireBaseAuthen authen;
-    CompositeDisposable disposable;
+    FireBaseAuthen authen=new FireBaseAuthen();
+    CompositeDisposable disposable=new CompositeDisposable();
     CreateAccountContract.view view;
 
     CreateAccountPresenter(CreateAccountContract.view view) {
@@ -28,9 +28,11 @@ public class CreateAccountPresenter implements CreateAccountContract.presenter {
 
     @Override
     public void OnCreateClick() {
+
         final Data data;
          data = new Data(view.getEmail(), view.getPassword());
-        disposable.add(authen.login(data)
+
+        disposable.add(authen.createacc(data)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableCompletableObserver() {

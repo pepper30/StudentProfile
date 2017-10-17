@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1090144013006",
+    "firebase_url": "https://loginproject-e6fe6.firebaseio.com",
+    "project_id": "loginproject-e6fe6",
+    "storage_bucket": "loginproject-e6fe6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090144013006:android:0b7a98538514ddb8",
+        "android_client_info": {
+          "package_name": "megha.jindal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090144013006-daurb26vrivet1ttgjsv8q83hlag98km.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXN1MK4Juc_NuI-3TpXsyVjxLDFsfTL0w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

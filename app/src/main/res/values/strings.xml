@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">jindal</string>
+    <string name="ac">Account Does Not Exist?? Create here</string>
 </resources>

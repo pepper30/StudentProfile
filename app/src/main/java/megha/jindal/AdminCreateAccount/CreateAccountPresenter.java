@@ -32,6 +32,7 @@ public class CreateAccountPresenter implements CreateAccountContract.presenter {
         final Data data;
          data = new Data(view.getEmail(), view.getPassword());
 
+        view.ShowProgressbar(true);
         disposable.add(authen.createacc(data)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

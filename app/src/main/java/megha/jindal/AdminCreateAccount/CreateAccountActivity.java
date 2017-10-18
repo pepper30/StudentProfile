@@ -39,7 +39,7 @@ public class CreateAccountActivity extends AppCompatActivity implements CreateAc
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ShowProgressbar(true);
                 presenter.OnCreateClick();
             }
         });

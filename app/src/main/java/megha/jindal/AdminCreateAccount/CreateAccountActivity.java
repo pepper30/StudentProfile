@@ -39,7 +39,6 @@ public class CreateAccountActivity extends AppCompatActivity implements CreateAc
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShowProgressbar(true);
                 presenter.OnCreateClick();
             }
         });
@@ -56,7 +55,7 @@ public class CreateAccountActivity extends AppCompatActivity implements CreateAc
     }
 
     @Override
-    public void ShowProgressbar(Boolean show) {
+    public void showProgressbar(Boolean show) {
         if (show) {
             progressBar.setVisibility(View.VISIBLE);
         } else {
@@ -65,12 +64,12 @@ public class CreateAccountActivity extends AppCompatActivity implements CreateAc
     }
 
     @Override
-    public void ShowToast(String message) {
+    public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void StartLoginActivity() {
+    public void startLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }

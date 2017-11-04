@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminLogin.LoginActivity">
+        <activity android:name=".StudentLogin.StudentLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,8 +20,8 @@
         <activity android:name=".AdminLogin.SignInAdmin" />
         <activity android:name=".AdminLogin.SignUpAdmin" />
         <activity android:name=".AdminLogin.ProfileActivity" />
-        <activity android:name=".StudentCreateAdmin.StudentAdminActivity"/>
-        <activity android:name=".AdminCreateAccount.CreateAccountActivity"/>
+        <activity android:name=".StudentCreateAdmin.StudentCreateActivity" />
+        <activity android:name=".AdminCreateAccount.CreateAccountActivity" />
 
     </application>
 

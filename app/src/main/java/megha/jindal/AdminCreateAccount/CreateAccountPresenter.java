@@ -32,22 +32,22 @@ public class CreateAccountPresenter implements CreateAccountContract.presenter {
         final Data data;
          data = new Data(view.getEmail(), view.getPassword());
 
-        view.ShowProgressbar(true);
+        view.showProgressbar(true);
         disposable.add(authen.createacc(data)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
-                        view.ShowProgressbar(true);
-                        view.StartLoginActivity();
+                        view.showProgressbar(true);
+                        view.startLoginActivity();
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        view.ShowProgressbar(true);
-                        view.ShowToast(e.getMessage());
+                        view.showProgressbar(true);
+                        view.showToast(e.getMessage());
 
                     }
                 }));

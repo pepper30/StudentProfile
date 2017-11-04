@@ -1,6 +1,7 @@
 package megha.jindal.AdminLogin;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import megha.jindal.AdminCreateAccount.CreateAccountActivity;
-import megha.jindal.AdminCreateAccount.CreateAccountContract;
 import megha.jindal.R;
-import megha.jindal.StudentCreateAdmin.StudentAdminActivity;
+import megha.jindal.StudentCreateAdmin.StudentCreateActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.view {
 
@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.vi
     ProgressBar progressBar;
     Button login_btn,signup_btn;
 
-    private LoginContract.presenter presenter;
+    private LoginContract.presenter presenter = new LoginPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +32,14 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.vi
         pass=findViewById(R.id.password);
         email=findViewById(R.id.email);
         progressBar=findViewById(R.id.progress);
+        progressBar.setBackgroundColor(Color.BLACK);
         login_btn=findViewById(R.id.login);
         signup_btn=findViewById(R.id.signup);
 
        login_btn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               showProgressBar(true);
-               StudentCreateActivity();
+             presenter.onLogin();
            }
        });
 
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.vi
            @Override
            public void onClick(View view) {
            showProgressBar(true);
-           CreateAccountActivity();
+           createAccountActivity();
            }
        });
 
@@ -81,13 +81,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.vi
     }
 
     @Override
-    public void StudentCreateActivity() {
-       Intent intent=new Intent(this,StudentAdminActivity.class);
+    public void studentCreateActivity() {
+       Intent intent=new Intent(this,StudentCreateActivity.class);
             startActivity(intent);
         }
 
     @Override
-    public void CreateAccountActivity() {
+    public void createAccountActivity() {
         Intent intent=new Intent(this,CreateAccountActivity.class);
           startActivity(intent);
         }

@@ -12,11 +12,11 @@ public interface CreateAccountContract {
 
         String getPassword();
 
-        void ShowProgressbar(Boolean show);
+        void showProgressbar(Boolean show);
 
-        void ShowToast(String message);
+        void showToast(String message);
 
-        void StartLoginActivity();
+        void startLoginActivity();
     }
 
     interface presenter {

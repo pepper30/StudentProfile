@@ -10,8 +10,8 @@ public interface LoginContract {
         String getPassword();
         void showProgressBar(Boolean show);
         void showToast(String  message);
-        void StudentCreateActivity();
-        void CreateAccountActivity();
+        void studentCreateActivity();
+        void createAccountActivity();
     }
 
     interface  presenter{

@@ -35,13 +35,13 @@ public class LoginPresenter implements LoginContract.presenter {
                  .subscribeWith(new DisposableCompletableObserver(){
                      @Override
                      public void onComplete() {
-                         view.showProgressBar(true);
-                         view.StudentCreateActivity();
+                         view.showProgressBar(false);
+                         view.studentCreateActivity();
                      }
 
                      @Override
                      public void onError(Throwable e) {
-                         view.showProgressBar(true);
+                         view.showProgressBar(false);
                          view.showToast(e.getMessage());
 
                      }

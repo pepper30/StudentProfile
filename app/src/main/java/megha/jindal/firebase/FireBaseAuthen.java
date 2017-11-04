@@ -25,17 +25,17 @@ public class FireBaseAuthen implements AuthSource {
 
     @Override
     public Completable createacc(final Data data) {
-        return  Completable.create(new CompletableOnSubscribe() {
+        return Completable.create(new CompletableOnSubscribe() {
             @Override
             public void subscribe(final CompletableEmitter e) throws Exception {
-                auth.createUserWithEmailAndPassword(data.getEmail(),data.getPassword())
+                auth.createUserWithEmailAndPassword(data.getEmail(), data.getPassword())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                 if (task.isSuccessful())
-                                     e.onComplete();
-                                 else
-                                     e.onError(task.getException());
+                                if (task.isSuccessful())
+                                    e.onComplete();
+                                else
+                                    e.onError(task.getException());
                             }
                         });
             }
@@ -56,7 +56,7 @@ public class FireBaseAuthen implements AuthSource {
                                 else
                                     e.onError(task.getException());
                             }
-                        })  ;
+                        });
             }
         });
     }

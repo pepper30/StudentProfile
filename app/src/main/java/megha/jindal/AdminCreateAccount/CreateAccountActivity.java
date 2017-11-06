@@ -15,13 +15,13 @@ import megha.jindal.R;
 import megha.jindal.firebase.Data;
 import megha.jindal.firebase.FireBaseAuthen;
 
-public class CreateAccountActivity extends AppCompatActivity implements CreateAccountContract.view {
+public class CreateAccountActivity extends AppCompatActivity implements CreateAccountContract.View {
 
     EditText pass, email;
     ProgressBar progressBar;
     Button signup_btn;
 
-    private CreateAccountContract.presenter presenter;
+    private CreateAccountContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

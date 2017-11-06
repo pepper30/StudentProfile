@@ -10,11 +10,11 @@ import android.widget.Toast;
 
 import megha.jindal.R;
 
-public class StudentCreateActivity extends AppCompatActivity  implements  StudentCreateContract.view{
+public class StudentCreateActivity extends AppCompatActivity  implements  StudentCreateContract.View{
     EditText roll,pass,mail,name,branch,cgpa;
     Button btn;
     ProgressBar progressBar;
-    private StudentCreateContract.presenter presenter;
+    private StudentCreateContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +67,9 @@ public class StudentCreateActivity extends AppCompatActivity  implements  Studen
     }
 
     @Override
-    public float getCgpa() {
-        float f=Float.parseFloat(cgpa.getText().toString());
-        return f;
+    public String getCgpa() {
+       return cgpa.getText().toString();
+
     }
 
     @Override
@@ -83,8 +83,8 @@ public class StudentCreateActivity extends AppCompatActivity  implements  Studen
     }
 
     @Override
-    public Float setCgpa(String s) {
-        return null;
+    public String setCgpa(String s) {
+        return " ";
     }
 
     @Override

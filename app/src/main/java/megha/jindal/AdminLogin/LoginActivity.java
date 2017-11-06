@@ -14,13 +14,13 @@ import megha.jindal.AdminCreateAccount.CreateAccountActivity;
 import megha.jindal.R;
 import megha.jindal.StudentCreateAdmin.StudentCreateActivity;
 
-public class LoginActivity extends AppCompatActivity implements LoginContract.view {
+public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
     EditText pass,email;
     ProgressBar progressBar;
     Button login_btn,signup_btn;
 
-    private LoginContract.presenter presenter = new LoginPresenter(this);
+    private LoginContract.Presenter presenter = new LoginPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.vi
        signup_btn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-           showProgressBar(true);
-           createAccountActivity();
+               createAccountActivity();
            }
        });
 

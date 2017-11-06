@@ -17,12 +17,12 @@ import megha.jindal.firebase.FireBaseAuthen;
  * Created by Megha Chauhan on 16-Oct-17.
  */
 
-public class CreateAccountPresenter implements CreateAccountContract.presenter {
+public class CreateAccountPresenter implements CreateAccountContract.Presenter {
     FireBaseAuthen authen=new FireBaseAuthen();
     CompositeDisposable disposable=new CompositeDisposable();
-    CreateAccountContract.view view;
+    CreateAccountContract.View view;
 
-    CreateAccountPresenter(CreateAccountContract.view view) {
+    CreateAccountPresenter(CreateAccountContract.View view) {
         this.view = view;
     }
 
@@ -46,7 +46,7 @@ public class CreateAccountPresenter implements CreateAccountContract.presenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        view.showProgressbar(true);
+
                         view.showToast(e.getMessage());
 
                     }

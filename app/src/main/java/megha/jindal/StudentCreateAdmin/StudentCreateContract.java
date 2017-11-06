@@ -5,14 +5,14 @@ package megha.jindal.StudentCreateAdmin;
  */
 
 public interface StudentCreateContract {
-    interface view{
+    interface View{
         String getEmail();
         String getPassword();
         String getBranch();
-        float getCgpa();
+        String getCgpa();
         String getSname();
         String getRoll();
-        Float setCgpa(String s);
+        String setCgpa(String s);
         String setEmail(String s);
         String setPassword(String s);
         String setBranch(String s);
@@ -22,7 +22,7 @@ public interface StudentCreateContract {
         void showToast(String message);
 
     }
-    interface  presenter{
+    interface  Presenter{
         void onStudentCreate();
 
 

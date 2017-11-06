@@ -5,7 +5,7 @@ package megha.jindal.AdminLogin;
  */
 
 public interface LoginContract {
-    interface view{
+    interface View{
         String getEmail();
         String getPassword();
         void showProgressBar(Boolean show);
@@ -14,7 +14,7 @@ public interface LoginContract {
         void createAccountActivity();
     }
 
-    interface  presenter{
+    interface  Presenter{
         void onLogin();
     }
 

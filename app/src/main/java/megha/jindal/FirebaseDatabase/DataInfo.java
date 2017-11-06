@@ -1,10 +1,12 @@
 package megha.jindal.FirebaseDatabase;
 
+import java.io.Serializable;
+
 /**
  * Created by Megha Chauhan on 01-Nov-17.
  */
 
-public class DataInfo {
+public class DataInfo implements Serializable {
 
     public String getEmail() {
         return email;
@@ -24,7 +26,7 @@ public class DataInfo {
         return sname;
     }
 
-    public float getCgpa() {
+    public String getCgpa() {
         return cgpa;
     }
 
@@ -33,7 +35,7 @@ public class DataInfo {
     }
 
     String roll,email,password,branch,sname;
-    float cgpa;
+    String cgpa;
 
     public  DataInfo(String email,String pass,String roll){
         this.email=email;
@@ -42,7 +44,7 @@ public class DataInfo {
     }
 
 
-    public DataInfo(String email,String pass,String br,String name,float cgpa,String roll){
+    public DataInfo(String email,String pass,String br,String name,String cgpa,String roll){
         this.branch=br;
         this.cgpa=cgpa;
         this.email=email;
@@ -53,5 +55,16 @@ public class DataInfo {
 
     public DataInfo(){}
 
+    public DataInfo(String email,String br,String name,String cgpa,String roll){
+        this.branch=br;
+        this.cgpa=cgpa;
+        this.email=email;
+        this.sname=name;
+        this.roll=roll;
+    }
 
+    @Override
+    public String toString() {
+        return "Email:" + this.getEmail() ;
+    }
 }

@@ -1,6 +1,7 @@
 package megha.jindal.StudentLogin;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +10,15 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.io.Serializable;
+
+import megha.jindal.FirebaseDatabase.DataInfo;
 import megha.jindal.MainActivity;
 import megha.jindal.R;
+import megha.jindal.StudentProfile.StudentProfileActivity;
 
-public class StudentLoginActivity extends AppCompatActivity implements StudentLoginContract.view{
-    StudentLoginContract.presenter presenter;
+public class StudentLoginActivity extends AppCompatActivity implements StudentLoginContract.View{
+    StudentLoginContract.Presenter presenter;
     EditText email,pass,roll;
     ProgressBar progressBar;
     Button btn;
@@ -71,8 +76,10 @@ public class StudentLoginActivity extends AppCompatActivity implements StudentLo
     }
 
     @Override
-    public void startProfileActivity() {
-        Intent intent=new Intent(this,MainActivity.class);
+    public void startProfileActivity(DataInfo dataInfo) {
+        dataInfo=new DataInfo(dataInfo.getEmail(),dataInfo.getBranch(),dataInfo.getSname(),dataInfo.getCgpa(),dataInfo.getRoll());
+        Intent intent=new Intent(StudentLoginActivity.this, StudentProfileActivity.class);
+        intent.putExtra("info",  dataInfo);
         startActivity(intent);
 
     }

@@ -3,6 +3,7 @@ package megha.jindal.StudentLogin;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableCompletableObserver;
+import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import megha.jindal.FirebaseDatabase.DataInfo;
 import megha.jindal.FirebaseDatabase.DataService;
@@ -12,13 +13,13 @@ import megha.jindal.StudentCreateAdmin.StudentCreatePresenter;
  * Created by Megha Chauhan on 04-Nov-17.
  */
 
-public class StudentLoginPresenter implements StudentLoginContract.presenter {
-    StudentLoginContract.view view;
+public class StudentLoginPresenter implements StudentLoginContract.Presenter {
+    StudentLoginContract.View view;
 
     private DataService dataService = DataService.getInstance();
     private CompositeDisposable disposable = new CompositeDisposable();
 
-   StudentLoginPresenter(StudentLoginContract.view view){
+   StudentLoginPresenter(StudentLoginContract.View view){
        this.view=view;
    }
 
@@ -28,14 +29,13 @@ public class StudentLoginPresenter implements StudentLoginContract.presenter {
         disposable.add(dataService.studentLogin(studentDataInfo)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableCompletableObserver() {
+                .subscribeWith(new DisposableSingleObserver<DataInfo>() {
 
                     @Override
-                    public void onComplete() {
+                    public void onSuccess(DataInfo dataInfo) {
                         view.showProgressBar(true);
-                        view.startProfileActivity();
+                        view.startProfileActivity(dataInfo);
                         view.showToast("Successfully logged in");
-
                     }
 
                     @Override
@@ -43,7 +43,7 @@ public class StudentLoginPresenter implements StudentLoginContract.presenter {
                         view.showToast(e.getMessage());
                     }
                 }));
-
-
+             }
     }
-}
+
+

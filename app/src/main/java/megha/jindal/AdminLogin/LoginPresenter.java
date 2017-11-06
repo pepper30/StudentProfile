@@ -12,13 +12,13 @@ import megha.jindal.firebase.FireBaseAuthen;
  * Created by Megha Chauhan on 17-Oct-17.
  */
 
-public class LoginPresenter implements LoginContract.presenter {
+public class LoginPresenter implements LoginContract.Presenter {
 
-    LoginContract.view view;
+    LoginContract.View view;
     FireBaseAuthen authen=new FireBaseAuthen();
     CompositeDisposable disposable=new CompositeDisposable();
 
-    LoginPresenter(LoginContract.view view){
+    LoginPresenter(LoginContract.View view){
         this.view=view;
     }
 
@@ -41,7 +41,7 @@ public class LoginPresenter implements LoginContract.presenter {
 
                      @Override
                      public void onError(Throwable e) {
-                         view.showProgressBar(false);
+
                          view.showToast(e.getMessage());
 
                      }

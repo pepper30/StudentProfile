@@ -21,13 +21,13 @@ import megha.jindal.firebase.Data;
  * Created by Megha Chauhan on 02-Nov-17.
  */
 
-public class StudentCreatePresenter implements StudentCreateContract.presenter {
-    StudentCreateContract.view view;
+public class StudentCreatePresenter implements StudentCreateContract.Presenter {
+    StudentCreateContract.View view;
 
     CompositeDisposable disposable = new CompositeDisposable();
     DataService dataService= DataService.getInstance();
 
-    StudentCreatePresenter(StudentCreateContract.view view) {
+    StudentCreatePresenter(StudentCreateContract.View view) {
         this.view = view;
     }
 

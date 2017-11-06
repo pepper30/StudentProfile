@@ -1,6 +1,7 @@
 package megha.jindal.FirebaseDatabase;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +22,8 @@ import io.reactivex.SingleOnSubscribe;
 import io.reactivex.schedulers.Schedulers;
 import megha.jindal.firebase.Data;
 
+import static io.reactivex.Single.create;
+
 
 /**
  * Created by Megha Chauhan on 01-Nov-17.
@@ -28,7 +31,7 @@ import megha.jindal.firebase.Data;
 
 public class DataService implements DataSource {
 
-    private String email,pass;
+
 
     private DataService() {
     }
@@ -73,42 +76,43 @@ public class DataService implements DataSource {
 
     }
 
- @Override
-    public Completable studentLogin(final DataInfo dataInfo) {
-        return Completable.create(new CompletableOnSubscribe() {
-
+    @Override
+    public Single<DataInfo> studentLogin(final DataInfo dataInfo) {
+        return Single.create(new SingleOnSubscribe<DataInfo>() {
             @Override
-            public void subscribe(final CompletableEmitter e) throws Exception {
-
+            public void subscribe(final SingleEmitter e) throws Exception {
                 DatabaseReference pref = FirebaseDatabase.getInstance().getReference();
-                final DatabaseReference cref = pref.child(dataInfo.getRoll());
-                cref.orderByKey().equalTo(dataInfo.getEmail().toString()).addValueEventListener(new ValueEventListener() {
+                DatabaseReference cref = pref.child(dataInfo.getRoll());
+                cref.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            for (DataSnapshot data:dataSnapshot.getChildren()) {
-                                email = (String) data.child("email").getValue();
-                                pass=(String)data.child("pass").getValue();
 
-                            }
-                            if(((dataInfo.getEmail()).equals(email)) && (dataInfo.getPassword().equals(pass))) {
-                                e.onComplete();
-                            }
+                            DataInfo dataInfo1 = dataSnapshot.getValue(DataInfo.class);
+                             e.onSuccess(dataInfo1);
+
                         }
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        databaseError.getMessage();
+                           databaseError.getMessage();
                     }
                 });
             }
         });
     }
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 

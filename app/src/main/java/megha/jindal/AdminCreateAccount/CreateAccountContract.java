@@ -7,7 +7,7 @@ import android.graphics.Paint;
  */
 
 public interface CreateAccountContract {
-    interface view {
+    interface View {
         String getEmail();
 
         String getPassword();
@@ -19,7 +19,7 @@ public interface CreateAccountContract {
         void startLoginActivity();
     }
 
-    interface presenter {
+    interface Presenter {
         public void OnCreateClick();
     }
 }

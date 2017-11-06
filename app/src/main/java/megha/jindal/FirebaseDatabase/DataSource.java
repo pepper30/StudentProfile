@@ -1,6 +1,7 @@
 package megha.jindal.FirebaseDatabase;
 
 import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Single;
 
 /**
@@ -9,5 +10,5 @@ import io.reactivex.Single;
 
 public interface DataSource {
     Completable createStudent(DataInfo dataInfo);
-    Completable studentLogin(DataInfo dataInfo);
+    Single<DataInfo> studentLogin(DataInfo dataInfo);
 }

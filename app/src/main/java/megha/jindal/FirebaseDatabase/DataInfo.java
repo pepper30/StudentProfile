@@ -1,12 +1,15 @@
 package megha.jindal.FirebaseDatabase;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 /**
  * Created by Megha Chauhan on 01-Nov-17.
  */
 
-public class DataInfo implements Serializable {
+public class DataInfo implements Serializable{
 
     public String getEmail() {
         return email;
@@ -55,16 +58,23 @@ public class DataInfo implements Serializable {
 
     public DataInfo(){}
 
-    public DataInfo(String email,String br,String name,String cgpa,String roll){
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public DataInfo(String email, String br, String name, String cgpa, String roll){
         this.branch=br;
         this.cgpa=cgpa;
         this.email=email;
         this.sname=name;
         this.roll=roll;
+
     }
 
     @Override
     public String toString() {
         return "Email:" + this.getEmail() ;
     }
+
+
 }

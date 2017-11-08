@@ -77,10 +77,10 @@ public class StudentLoginActivity extends AppCompatActivity implements StudentLo
 
     @Override
     public void startProfileActivity(DataInfo dataInfo) {
-        dataInfo=new DataInfo(dataInfo.getEmail(),dataInfo.getBranch(),dataInfo.getSname(),dataInfo.getCgpa(),dataInfo.getRoll());
-        Intent intent=new Intent(StudentLoginActivity.this, StudentProfileActivity.class);
-        intent.putExtra("info",  dataInfo);
-        startActivity(intent);
+         dataInfo=new DataInfo(dataInfo.getEmail(),dataInfo.getBranch(),dataInfo.getSname(),dataInfo.getCgpa(),dataInfo.getRoll());
+         Intent intent=new Intent(StudentLoginActivity.this,StudentProfileActivity.class);
+         intent.putExtra("info",dataInfo);
+         startActivity(intent);
 
     }
 }
